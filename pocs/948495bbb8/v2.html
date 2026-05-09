@@ -1,447 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PhysioWorks Brisbane Physiotherapy & Sports Injury Care</title>
-    <meta name="description" content="PhysioWorks provides trusted physiotherapy, remedial massage and exercise physiology across Brisbane suburbs. Expert care for sports injuries and joint pain.">
-    <meta property="og:title" content="PhysioWorks Brisbane Physiotherapy & Sports Injury Care">
-    <meta property="og:description" content="PhysioWorks provides trusted physiotherapy, remedial massage and exercise physiology across Brisbane suburbs. Expert care for sports injuries and joint pain.">
-    <meta property="og:type" content="website">
-    <link rel="canonical" href="https://www.physioworks.com.au">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-        :root {
-            --primary-color: #0D0D12;
-            --accent-color: #C9A84C;
-            --background-color: #FAF8F5;
-            --text-color: #0D0D12;
-            --surface-color: #FFFFFF;
-            --muted-color: #6B6B6B;
-            --border-radius: 0.75rem;
-            --shadow-style: 0 8px 32px rgba(13,13,18,0.15);
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--surface-color);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--muted-color);
-            z-index: 1000;
-        }
-        .navbar .logo {
-            font-size: 18px;
-            font-weight: 600;
-            margin-right: 20px;
-        }
-        .navbar .nav-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar .nav-links li {
-            margin-right: 20px;
-        }
-        .navbar .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.2s ease;
-        }
-        .navbar .nav-links a:hover {
-            color: var(--accent-color);
-        }
-        .navbar .cta-button {
-            background-color: var(--accent-color);
-            color: var(--surface-color);
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-        .navbar .cta-button:hover {
-            transform: scale(1.03);
-        }
-        .hero {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-image: linear-gradient(to bottom, var(--primary-color), var(--primary-color));
-            background-size: 100% 300px;
-            background-position: 0% 100%;
-            padding: 0 20px;
-        }
-        .hero .headline {
-            font-size: clamp(24px, 5vw, 48px);
-            font-weight: 800;
-            color: var(--surface-color);
-            margin-bottom: 10px;
-        }
-        .hero .subtext {
-            font-size: 18px;
-            color: var(--surface-color);
-            margin-bottom: 20px;
-        }
-        .hero .ctas {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .hero .ctas button {
-            background-color: var(--accent-color);
-            color: var(--surface-color);
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            margin-right: 10px;
-        }
-        .hero .ctas button:hover {
-            transform: scale(1.03);
-        }
-        .stats-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--surface-color);
-            padding: 20px;
-            border-bottom: 1px solid var(--muted-color);
-        }
-        .stats-bar .stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-        }
-        .stats-bar .stat .number {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-        .stats-bar .stat .label {
-            font-size: 16px;
-            color: var(--muted-color);
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 20px;
-        }
-        .service {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border: 1px solid var(--muted-color);
-            border-radius: var(--border-radius);
-            background-color: var(--surface-color);
-        }
-        .service .icon {
-            font-size: 24px;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-        .service .name {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-        .service .desc {
-            font-size: 16px;
-            color: var(--muted-color);
-        }
-        .about {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-        .about .text {
-            flex: 1;
-            margin-right: 20px;
-        }
-        .about .image {
-            flex: 1;
-            max-width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-        }
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 20px;
-        }
-        .testimonial {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border: 1px solid var(--muted-color);
-            border-radius: var(--border-radius);
-            background-color: var(--surface-color);
-        }
-        .testimonial .quote {
-            font-size: 18px;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-        .testimonial .author {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-        .testimonial .role {
-            font-size: 16px;
-            color: var(--muted-color);
-        }
-        .cta-band {
-            background-color: var(--primary-color);
-            padding: 20px;
-            text-align: center;
-            color: var(--surface-color);
-        }
-        .cta-band .headline {
-            font-size: clamp(24px, 5vw, 48px);
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-        .cta-band .ctas {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .cta-band .ctas button {
-            background-color: var(--accent-color);
-            color: var(--surface-color);
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            margin-right: 10px;
-        }
-        .cta-band .ctas button:hover {
-            transform: scale(1.03);
-        }
-        .footer {
-            background-color: var(--primary-color);
-            padding: 20px;
-            text-align: center;
-            color: var(--surface-color);
-        }
-        .footer .logo {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .footer .nav {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer .nav li {
-            margin-right: 20px;
-        }
-        .footer .nav a {
-            text-decoration: none;
-            color: var(--surface-color);
-            transition: color 0.2s ease;
-        }
-        .footer .nav a:hover {
-            color: var(--accent-color);
-        }
-        .footer .contact {
-            font-size: 16px;
-            color: var(--muted-color);
-            margin-bottom: 10px;
-        }
-        .footer .copyright {
-            font-size: 16px;
-            color: var(--muted-color);
-        }
-        .demo-ribbon {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--accent-color);
-            color: var(--surface-color);
-            padding: 10px;
-            text-align: center;
-            z-index: 1000;
-        }
-        @media (min-width: 768px) {
-            .navbar {
-                padding: 20px 40px;
-            }
-            .hero {
-                background-size: 100% 500px;
-            }
-            .stats-bar {
-                padding: 40px;
-            }
-            .services {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .about {
-                flex-direction: row;
-            }
-            .testimonials {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhysioWorks Brisbane | Premium Physiotherapy & Rehab</title>
+<meta name="description" content="PhysioWorks: Brisbane's premium physiotherapy, remedial massage & exercise physiology. 6 clinic locations across Ashgrove, Clayfield, Sandgate, Rochedale, Loganholme & Salisbury.">
+<meta property="og:title" content="PhysioWorks Brisbane | Premium Physiotherapy & Rehab">
+<meta property="og:description" content="Brisbane's premium physiotherapy network. 6 clinic locations. Expert care, exceptional results. Book online.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://picsum.photos/seed/physioworks2/1200/630">
+<meta property="og:url" content="https://www.physioworks.com.au">
+<link rel="canonical" href="https://www.physioworks.com.au">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚕️</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap');
+:root{--p:#0D0D12;--a:#C9A84C;--bg:#FAF8F5;--surf:#FFFFFF;--tx:#0D0D12;--mu:#6B6B6B;--ln:#E5E3DF;--r:.75rem;--ease:.25s cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);font-size:16px;line-height:1.6;overflow-x:hidden}
+.ribbon{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--a);color:#0D0D12;text-align:center;font-size:11px;font-weight:700;letter-spacing:.06em;padding:7px 16px;text-transform:uppercase}
+nav{position:fixed;top:28px;left:0;right:0;z-index:900;padding:0 5%}
+.pill{display:flex;align-items:center;justify-content:space-between;background:rgba(13,13,18,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:100px;padding:8px 8px 8px 22px;max-width:1100px;margin:0 auto;box-shadow:0 8px 40px rgba(0,0,0,.35);border:1px solid rgba(201,168,76,.15)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{height:28px;width:auto;filter:brightness(10)}
+.logo span{font-weight:700;font-size:15px;color:#fff;letter-spacing:-.3px}
+.nav-links{display:none;list-style:none;gap:28px}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.02em;transition:color var(--ease);text-transform:uppercase}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:inline-flex;align-items:center;background:var(--a);color:#0D0D12;padding:10px 22px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;transition:transform var(--ease);white-space:nowrap;min-height:44px;letter-spacing:.03em;text-transform:uppercase}
+.nav-cta:hover{transform:scale(1.03)}
+#mt{display:none}
+.hbg{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;justify-content:center;align-items:center;margin-left:8px}
+.hbg span{display:block;width:20px;height:1.5px;background:#fff;border-radius:2px}
+.mob-nav{display:none;flex-direction:column;padding:16px 20px;gap:0}
+#mt:checked~.pill .mob-nav{display:flex}
+.mob-nav a{color:rgba(255,255,255,.75);text-decoration:none;padding:13px 0;font-size:15px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)}
+
+/* HERO */
+.hero{min-height:100dvh;background:var(--p);display:flex;align-items:flex-end;padding:calc(28px + 80px + 32px) 5% 64px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0D0D12 40%,#1a1520 100%)}
+.hero-glow{position:absolute;top:10%;right:5%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 65%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.hero-inner{position:relative;z-index:1;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--a);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:24px}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--a)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,7rem);font-weight:600;color:#FAF8F5;line-height:1.0;letter-spacing:-2px;margin-bottom:24px;max-width:800px}
+.hero h1 span{font-style:italic;color:var(--a)}
+.hero-sub{font-size:clamp(1rem,2vw,1.1rem);color:rgba(250,248,245,.5);max-width:480px;line-height:1.7;margin-bottom:40px;font-weight:300}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:72px}
+.btn-gold{display:inline-flex;align-items:center;background:var(--a);color:#0D0D12;padding:15px 30px;border-radius:var(--r);font-size:14px;font-weight:700;text-decoration:none;min-height:44px;letter-spacing:.04em;text-transform:uppercase;transition:transform var(--ease),box-shadow var(--ease)}
+.btn-gold:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(250,248,245,.6);padding:15px 24px;border-radius:var(--r);font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(250,248,245,.15);min-height:44px;transition:all var(--ease)}
+.btn-ghost:hover{border-color:rgba(250,248,245,.4);color:#fff}
+.divider{width:60px;height:1px;background:rgba(201,168,76,.4);margin-bottom:24px}
+.kpi-row{display:flex;flex-wrap:wrap;gap:40px}
+.kpi-val{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:600;color:var(--a);line-height:1}
+.kpi-lbl{font-size:11px;color:rgba(250,248,245,.35);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+
+/* SERVICES */
+.sec{padding:88px 5%}
+.sec-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;color:var(--p);line-height:1.15;margin-bottom:10px}
+.sec-sub{font-size:1rem;color:var(--mu);max-width:500px;margin-bottom:48px}
+.svc-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:var(--r);overflow:hidden}
+.svc{background:var(--surf);padding:32px;transition:background var(--ease)}
+.svc:hover{background:#F5F3EE}
+.svc-n{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--a);text-transform:uppercase;margin-bottom:10px}
+.svc h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--p);margin-bottom:8px}
+.svc p{font-size:14px;color:var(--mu);line-height:1.6}
+
+/* ABOUT */
+.about-sec{background:var(--p);padding:88px 5%}
+.about-g{display:flex;flex-direction:column;gap:56px}
+.about-txt .sec-tag{color:rgba(201,168,76,.7)}
+.about-txt .sec-h{color:#FAF8F5}
+.about-txt p{color:rgba(250,248,245,.55);font-size:1.05rem;line-height:1.75;margin-bottom:14px;font-weight:300}
+.about-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(201,168,76,.15)}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* TESTIMONIALS */
+.test-sec{background:var(--p);padding:0 5% 88px}
+.test-g{display:grid;grid-template-columns:1fr;gap:16px}
+.test{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.12);border-radius:var(--r);padding:32px}
+.stars{color:var(--a);font-size:14px;letter-spacing:3px;margin-bottom:16px}
+.test blockquote{font-size:1rem;color:rgba(250,248,245,.65);line-height:1.7;font-style:italic;margin-bottom:20px;font-weight:300}
+.auth{display:flex;align-items:center;gap:12px}
+.av{width:36px;height:36px;border-radius:50%;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--a);font-weight:700}
+.auth-n{font-weight:600;font-size:13px;color:rgba(250,248,245,.85)}
+.auth-r{font-size:11px;color:rgba(250,248,245,.35)}
+
+/* CTA */
+.cta-band{background:var(--a);padding:88px 5%;text-align:center}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:600;color:#0D0D12;margin-bottom:14px}
+.cta-band p{color:rgba(13,13,18,.65);font-size:1rem;margin-bottom:32px;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn-dark{display:inline-flex;align-items:center;background:#0D0D12;color:#FAF8F5;padding:15px 30px;border-radius:var(--r);font-size:14px;font-weight:700;text-decoration:none;min-height:44px;letter-spacing:.03em;text-transform:uppercase;transition:transform var(--ease)}
+.btn-dark:hover{transform:scale(1.03)}
+.btn-od{display:inline-flex;align-items:center;border:2px solid rgba(13,13,18,.4);color:#0D0D12;padding:14px 30px;border-radius:var(--r);font-size:14px;font-weight:600;text-decoration:none;min-height:44px;transition:border-color var(--ease)}
+.btn-od:hover{border-color:#0D0D12}
+
+/* FOOTER */
+footer{background:#0D0D12;color:rgba(250,248,245,.4);padding:60px 5% 28px;border-top:1px solid rgba(201,168,76,.1)}
+.ft{display:flex;flex-direction:column;gap:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:22px}
+.fb-bot{display:flex;flex-direction:column;gap:6px;font-size:12px;letter-spacing:.03em}
+.fl h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(250,248,245,.25);margin-bottom:12px}
+.fl ul{list-style:none}
+.fl li{margin-bottom:7px}
+.fl a{color:rgba(250,248,245,.4);text-decoration:none;font-size:13px;transition:color var(--ease)}
+.fl a:hover{color:#FAF8F5}
+
+/* RESPONSIVE */
+@media(min-width:768px){
+  .nav-links{display:flex}.hbg{display:none}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .test-g{grid-template-columns:repeat(2,1fr)}
+  .about-g{flex-direction:row;align-items:center}
+  .about-txt{flex:1}.about-img{flex:1}
+  .ft{flex-direction:row;justify-content:space-between}
+  .fb-bot{flex-direction:row;justify-content:space-between}
+}
+@media(min-width:1024px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
 </head>
 <body>
-    <div class="demo-ribbon">
-        ✨ DEMO — Preset B: Midnight Luxe | Built for PhysioWorks
+<div class="ribbon">✨ DEMO — Option 2: Midnight Luxe &nbsp;|&nbsp; Built for PhysioWorks &nbsp;·&nbsp; Not a live site</div>
+<nav>
+  <input type="checkbox" id="mt">
+  <div class="pill">
+    <a href="https://www.physioworks.com.au" class="logo">
+      <img src="https://physioworks.com.au/wp-content/uploads/2019/07/logo-new.png" alt="PhysioWorks logo">
+      <span>PhysioWorks</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Clinics</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="https://physioworks.com.au/clinics/" class="nav-cta">Book Now</a>
+      <label class="hbg" for="mt" aria-label="Toggle menu"><span></span><span></span><span></span></label>
     </div>
-    <nav class="navbar">
-        <div class="logo">PhysioWorks</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <button class="cta-button">Book Online</button>
-    </nav>
-    <section class="hero">
-        <h1 class="headline">Expert Physiotherapy & Sports Injury Care</h1>
-        <p class="subtext">PhysioWorks provides trusted physiotherapy, remedial massage and exercise physiology across Brisbane suburbs, helping patients recover faster and stay active.</p>
-        <div class="ctas">
-            <button>Book Online</button>
-            <button>Learn More</button>
-        </div>
-        <img src="https://picsum.photos/seed/hero/1920/1080" alt="Hero Image">
-    </section>
-    <section class="stats-bar">
-        <div class="stat">
-            <span class="number">500+</span>
-            <span class="label">Clients Treated</span>
-        </div>
-        <div class="stat">
-            <span class="number">10+</span>
-            <span class="label">Years Experience</span>
-        </div>
-        <div class="stat">
-            <span class="number">98%</span>
-            <span class="label">Satisfaction Rate</span>
-        </div>
-    </section>
-    <section class="services">
-        <div class="service">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-            <h2 class="name">Physiotherapy</h2>
-            <p class="desc">Professional physiotherapy tailored to your needs.</p>
-        </div>
-        <div class="service">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-            <h2 class="name">Remedial Massage</h2>
-            <p class="desc">Expert remedial massage for lasting results.</p>
-        </div>
-        <div class="service">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-            <h2 class="name">Exercise Physiology</h2>
-            <p class="desc">Specialised exercise physiology with proven outcomes.</p>
-        </div>
-        <div class="service">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-            <h2 class="name">Sports Physiotherapy</h2>
-            <p class="desc">Comprehensive sports physiotherapy programme.</p>
-        </div>
-        <div class="service">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-            <h2 class="name">Massage Therapy</h2>
-            <p class="desc">Personalised massage therapy assessment.</p>
-        </div>
-        <div class="service">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-            <h2 class="name">GLA:D® Australia Program</h2>
-            <p class="desc">Ongoing gla:d® australia program and maintenance.</p>
-        </div>
-    </section>
-    <section class="about">
-        <div class="text">
-            <p>PhysioWorks provides physiotherapy Brisbane patients trust, plus remedial massage and exercise physiology across Ashgrove, Clayfield, Sandgate, Rochedale, Loganholme and Salisbury. With a team of experienced physiotherapists, massage therapists and exercise physiologists, they deliver personalized care for sports injuries, spinal conditions and joint pain. Their mission is to restore movement and improve quality of life through evidence‑based treatment.</p>
-        </div>
-        <div class="image">
-            <img src="https://picsum.photos/seed/about/400/300" alt="About Image">
-        </div>
-    </section>
-    <section class="testimonials">
-        <div class="testimonial">
-            <p class="quote">I came in with a chronic knee pain and after just a few sessions the pain was gone. The team is knowledgeable and caring.</p>
-            <p class="author">Sarah M.</p>
-            <p class="role">Patient</p>
-        </div>
-        <div class="testimonial">
-            <p class="quote">The remedial massage helped me relax after tough training sessions and improved my performance. Highly recommend PhysioWorks.</p>
-            <p class="author">James T.</p>
-            <p class="role">Client</p>
-        </div>
-    </section>
-    <section class="cta-band">
-        <h1 class="headline">Book Online</h1>
-        <div class="ctas">
-            <button>Book Online</button>
-            <button>Learn More</button>
-        </div>
-    </section>
-    <footer class="footer">
-        <div class="logo">PhysioWorks</div>
-        <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="contact">
-            <p></p>
-            <p></p>
-            <p>, Brisbane</p>
-        </div>
-        <div class="copyright">
-            <p>&copy; PhysioWorks. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="mob-nav">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Find a Clinic</a>
+      <a href="https://physioworks.com.au/clinics/" style="color:var(--a);font-weight:700">Book Now →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Brisbane's Leading Physiotherapy Network</div>
+    <h1>Your body.<br><span>Restored.</span></h1>
+    <p class="hero-sub">Six clinics across Brisbane delivering exceptional physiotherapy, remedial massage, and exercise physiology. Where precision meets care.</p>
+    <div class="btns">
+      <a href="https://physioworks.com.au/clinics/" class="btn-gold">Book Appointment</a>
+      <a href="#services" class="btn-ghost">Our Services →</a>
+    </div>
+    <div class="divider"></div>
+    <div class="kpi-row">
+      <div><div class="kpi-val">6</div><div class="kpi-lbl">Brisbane Clinics</div></div>
+      <div><div class="kpi-val">20+</div><div class="kpi-lbl">Years of Care</div></div>
+      <div><div class="kpi-val">98%</div><div class="kpi-lbl">Satisfaction Rate</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <span class="sec-tag">Treatments</span>
+  <h2 class="sec-h">Precision care for every condition</h2>
+  <p class="sec-sub">Our multidisciplinary team combines evidence-based practice with hands-on expertise across six Brisbane locations.</p>
+  <div class="svc-grid">
+    <div class="svc"><div class="svc-n">01</div><h3>Physiotherapy</h3><p>Expert assessment and treatment for musculoskeletal, sports, and spinal conditions by experienced clinicians.</p></div>
+    <div class="svc"><div class="svc-n">02</div><h3>Remedial Massage</h3><p>Targeted therapeutic massage to relieve muscle tension, reduce pain, and support recovery from injury.</p></div>
+    <div class="svc"><div class="svc-n">03</div><h3>Exercise Physiology</h3><p>Clinically prescribed exercise programs to manage chronic conditions and optimise physical function.</p></div>
+    <div class="svc"><div class="svc-n">04</div><h3>Sports Rehabilitation</h3><p>Advanced injury rehabilitation to return you to your sport at peak performance, safely and efficiently.</p></div>
+    <div class="svc"><div class="svc-n">05</div><h3>GLA:D® Program</h3><p>Australia's leading evidence-based program for hip and knee osteoarthritis management and prevention.</p></div>
+    <div class="svc"><div class="svc-n">06</div><h3>Allied Health</h3><p>Podiatry, occupational therapy and specialised allied health services — coordinated, comprehensive care.</p></div>
+  </div>
+</section>
+
+<section class="about-sec" id="about">
+  <div class="about-g">
+    <div class="about-txt">
+      <span class="sec-tag">Our Philosophy</span>
+      <h2 class="sec-h" style="color:#FAF8F5">Excellence, delivered with precision</h2>
+      <p>For over two decades, PhysioWorks has set the standard for physiotherapy across Brisbane. Six strategically located clinics ensure that world-class care is always within reach of the communities we serve.</p>
+      <p>Our multidisciplinary approach — combining physiotherapy, massage therapy, exercise physiology, and allied health — delivers comprehensive treatment outcomes that go beyond symptom relief to true recovery.</p>
+      <br>
+      <a href="https://physioworks.com.au/our-team/" style="display:inline-flex;align-items:center;gap:8px;color:var(--a);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;min-height:44px">Meet Our Team →</a>
+    </div>
+    <div class="about-img">
+      <img src="https://picsum.photos/seed/physioLuxe/800/600" alt="PhysioWorks clinic interior — modern treatment room" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="test-sec" id="testimonials">
+  <span class="sec-tag">Patient Stories</span>
+  <h2 class="sec-h" style="color:#FAF8F5;font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3rem);margin-bottom:10px">Outcomes that speak for themselves</h2>
+  <p style="color:rgba(250,248,245,.4);font-size:1rem;max-width:480px;margin-bottom:44px">Thousands of Brisbane patients trust PhysioWorks for their recovery journey.</p>
+  <div class="test-g">
+    <div class="test">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"After my knee surgery, I wasn't sure I'd play footy again. PhysioWorks had me back on the field in four months. Their expertise and care was exceptional — I couldn't recommend them more."</blockquote>
+      <div class="auth"><div class="av">M</div><div><div class="auth-n">Michael R.</div><div class="auth-r">Ashgrove Clinic Patient</div></div></div>
+    </div>
+    <div class="test">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"Years of lower back pain, gone. The exercise physiology program gave me my life back. I'm pain-free for the first time in a decade. The team here genuinely cares about your outcome."</blockquote>
+      <div class="auth"><div class="av">S</div><div><div class="auth-n">Sarah T.</div><div class="auth-r">Clayfield Clinic Patient</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <h2>Ready to restore your body?</h2>
+  <p>Same-week appointments available across all 6 Brisbane locations.</p>
+  <div class="cta-btns">
+    <a href="https://physioworks.com.au/clinics/" class="btn-dark">Book Online</a>
+    <a href="https://physioworks.com.au/contact-us" class="btn-od">Find a Clinic</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div class="fb" style="flex-shrink:0">
+      <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:#FAF8F5;margin-bottom:6px">PhysioWorks</div>
+      <p style="font-size:13px;max-width:240px;line-height:1.6;color:rgba(250,248,245,.35)">Excellence in sports, spinal, muscle & joint care. Brisbane, QLD.</p>
+    </div>
+    <div class="fl"><h4>Services</h4><ul>
+      <li><a href="https://physioworks.com.au">Physiotherapy</a></li>
+      <li><a href="https://physioworks.com.au/massage_brisbane/">Remedial Massage</a></li>
+      <li><a href="https://physioworks.com.au/exercise-physiology/">Exercise Physiology</a></li>
+      <li><a href="https://physioworks.com.au/allied-health/">Allied Health</a></li>
+    </ul></div>
+    <div class="fl"><h4>Clinics</h4><ul>
+      <li><a href="https://physioworks.com.au/clinics/ashgrove-physio-works/">Ashgrove</a></li>
+      <li><a href="https://physioworks.com.au/clinics/clayfield-physioworks/">Clayfield</a></li>
+      <li><a href="https://physioworks.com.au/clinics/">Sandgate</a></li>
+      <li><a href="https://physioworks.com.au/clinics/">Rochedale · Loganholme · Salisbury</a></li>
+    </ul></div>
+    <div class="fl"><h4>Company</h4><ul>
+      <li><a href="https://physioworks.com.au/our-team/">Our Team</a></li>
+      <li><a href="https://physioworks.com.au/contact-us">Contact</a></li>
+      <li><a href="https://physioworks.com.au/clinics/">Book Online</a></li>
+    </ul></div>
+  </div>
+  <div class="fb-bot"><span>© 2026 PhysioWorks. All rights reserved.</span><span>Brisbane, QLD, Australia</span></div>
+</footer>
 </body>
 </html>
