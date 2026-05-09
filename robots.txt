@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mraath.github.io/freelance-poc/sitemap.xml
