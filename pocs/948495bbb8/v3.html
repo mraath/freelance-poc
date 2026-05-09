@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioWorks</title>
+    <style>
+        /* Airbnb Design System Colors */
+        :root {
+            --primary: #ff385c;
+            --primary-active: #e00b41;
+            --primary-disabled: #ffd1da;
+            --primary-error-text: #c13515;
+            --primary-error-text-hover: #b32505;
+            --luxe: #460479;
+            --plus: #92174d;
+            --ink: #222222;
+            --body: #3f3f3f;
+            --muted: #6a6a6a;
+            --muted-soft: #929292;
+            --hairline: #dddddd;
+            --hairline-soft: #ebebeb;
+            --border-strong: #c1c1c1;
+            --canvas: #ffffff;
+            --surface-soft: #f7f7f7;
+            --surface-card: #ffffff;
+            --surface-strong: #f2f2f2;
+            --on-primary: #ffffff;
+            --on-dark: #ffffff;
+            --legal-link: #428bff;
+            --star-rating: #222222;
+            --scrim: #000000;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Airbnb Cereal VF', Circular, -apple-system, system-ui, Roboto, 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--body);
+            background-color: var(--canvas);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        /* Demo Ribbon */
+        .demo-ribbon {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            padding: 8px 16px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 1000;
+        }
+
+        /* Sticky Navigation */
+        .sticky-nav {
+            background-color: var(--surface-strong);
+            padding: 16px;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-nav .logo {
+            font-size: 18px;
+            font-weight: 500;
+            margin-right: 16px;
+        }
+
+        .sticky-nav .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 16px;
+        }
+
+        .sticky-nav .nav-links a {
+            color: var(--body);
+            text-decoration: none;
+            margin-right: 16px;
+        }
+
+        .sticky-nav .primary-cta {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(to bottom, var(--primary), var(--primary-active));
+            padding: 80px 16px;
+            text-align: center;
+            color: var(--on-primary);
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .hero .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .hero .button-primary {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 16px;
+        }
+
+        .hero .button-secondary {
+            background-color: var(--surface-soft);
+            color: var(--body);
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background-color: var(--surface-soft);
+        }
+
+        .stats-bar .stat {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+        }
+
+        .stats-bar .stat h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stats-bar .stat p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 16px;
+            padding: 16px;
+        }
+
+        .services-grid .service {
+            background-color: var(--surface-card);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .services-grid .service h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .services-grid .service p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 16px;
+        }
+
+        .testimonials .testimonial {
+            background-color: var(--surface-card);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .testimonials .testimonial h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .testimonials .testimonial p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* CTA Band */
+        .cta-band {
+            background-image: linear-gradient(to bottom, var(--primary), var(--primary-active));
+            padding: 32px 16px;
+            text-align: center;
+            color: var(--on-primary);
+        }
+
+        .cta-band h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cta-band .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .cta-band .button-primary {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 16px;
+        }
+
+        .cta-band .button-secondary {
+            background-color: var(--surface-soft);
+            color: var(--body);
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--surface-strong);
+            padding: 16px;
+            text-align: center;
+            color: var(--body);
+        }
+
+        .footer .logo {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .footer p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-ribbon">✨ DEMO — Option C — Bold & Distinctive · Built for PhysioWorks</div>
+    <nav class="sticky-nav">
+        <div class="logo">PhysioWorks</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <button class="primary-cta">Book Your Nearest Clinic</button>
+    </nav>
+    <section class="hero">
+        <h1>Physiotherapy Brisbane | Massage & Exercise Physiology</h1>
+        <p>PhysioWorks provides physiotherapy Brisbane patients trust, plus remedial massage and exercise physiology across multiple locations.</p>
+        <div class="buttons">
+            <button class="button-primary">Book Now</button>
+            <button class="button-secondary">Learn More</button>
+        </div>
+        <img src="https://picsum.photos/seed/PhysioWorks/800/500" alt="">
+    </section>
+    <section class="stats-bar">
+        <div class="stat">
+            <h2>1000+</h2>
+            <p>Patient Success Stories</p>
+        </div>
+        <div class="stat">
+            <h2>5+</h2>
+            <p>Years of Experience</p>
+        </div>
+        <div class="stat">
+            <h2>95%</h2>
+            <p>Patient Satisfaction Rate</p>
+        </div>
+    </section>
+    <section class="services-grid">
+        <div class="service">
+            <h3>Physiotherapy</h3>
+            <p>Our team of experienced physiotherapists provide personalized treatment plans to help you recover from injury or illness.</p>
+        </div>
+        <div class="service">
+            <h3>Remedial Massage</h3>
+            <p>Our remedial massage therapists use a range of techniques to help you relax, reduce pain and improve your overall well-being.</p>
+        </div>
+        <div class="service">
+            <h3>Exercise Physiology</h3>
+            <p>Our exercise physiologists design personalized exercise programs to help you achieve your health and fitness goals.</p>
+        </div>
+        <div class="service">
+            <h3>Allied Health Support</h3>
+            <p>Our team of allied health professionals provide a range of services to support your recovery, rehabilitation and performance goals.</p>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="testimonial">
+            <h3>John Doe</h3>
+            <p>"PhysioWorks have been instrumental in my recovery from injury. The team are knowledgeable, friendly and professional. I highly recommend them!"</p>
+        </div>
+        <div class="testimonial">
+            <h3>Jane Smith</h3>
+            <p>"I was amazed at the level of care and attention I received from PhysioWorks. They truly care about their patients and it shows in the results they achieve."</p>
+        </div>
+    </section>
+    <section class="cta-band">
+        <h2>Take the first step towards a healthier, happier you</h2>
+        <div class="buttons">
+            <button class="button-primary">Book Now</button>
+            <button class="button-secondary">Learn More</button>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="logo">PhysioWorks</div>
+        <p>Multiple locations across Ashgrove, Clayfield, Loganholme, Rochedale, Salisbury and Sandgate</p>
+        <p>Phone: <a href="tel:0400000000">0400 000 000</a></p>
+        <p>Email: <a href="mailto:info@physioworks.com.au">info@physioworks.com.au</a></p>
+        <p>&copy; 2023 PhysioWorks</p>
+    </footer>
+</body>
+</html>

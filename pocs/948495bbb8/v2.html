@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PhysioWorks – Physiotherapy Brisbane</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-primary:#533afd;
+    --color-heading:#061b31;
+    --color-bg:#ffffff;
+    --color-text:#222222;
+    --color-muted:#666666;
+    --shadow-layer1:rgba(50,50,93,.25);
+    --shadow-layer2:rgba(0,0,0,.1);
+    --radius:6px;
+    --font-sans:'Inter',system-ui,sans-serif;
+  }
+  *, *::before, *::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:16px}
+  body{
+    font-family:var(--font-sans);
+    background:var(--color-bg);
+    color:var(--color-text);
+    line-height:1.6;
+  }
+  a{color:var(--color-primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3,h4,h5,h6{
+    font-weight:300;
+    letter-spacing:-0.5px;
+    color:var(--color-heading);
+    margin-bottom:.5rem;
+  }
+  h1{font-size:2.25rem;letter-spacing:-0.96px}
+  h2{font-size:1.875rem;letter-spacing:-0.8px}
+  h3{font-size:1.5rem;letter-spacing:-0.64px}
+  p{margin-bottom:1rem}
+  .container{width:90%;max-width:1200px;margin:0 auto;padding:1rem 0}
+  /* Demo ribbon */
+  .demo-ribbon{
+    background:var(--color-primary);
+    color:#fff;
+    text-align:center;
+    font-size:.875rem;
+    padding:.5rem 0;
+    letter-spacing:.2px;
+  }
+  /* Sticky nav */
+  .navbar{
+    position:sticky;
+    top:0;
+    left:0;
+    right:0;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:.75rem 1rem;
+    box-shadow:0 2px 4px var(--shadow-layer1),0 1px 2px var(--shadow-layer2);
+    z-index:1000;
+  }
+  .logo{font-weight:500;font-size:1.25rem;color:var(--color-heading)}
+  .nav-links{display:flex;gap:1.5rem}
+  .nav-links a{font-size:.95rem;color:var(--color-muted)}
+  .nav-links a:hover{color:var(--color-heading)}
+  .cta-btn{
+    background:var(--color-primary);
+    color:#fff;
+    border:none;
+    padding:.75rem 1.5rem;
+    border-radius:var(--radius);
+    font-weight:500;
+    cursor:pointer;
+    transition:background .2s;
+  }
+  .cta-btn:hover{background:#432fd9}
+  .cta-btn.secondary{
+    background:transparent;
+    color:var(--color-primary);
+    border:2px solid var(--color-primary);
+  }
+  .cta-btn.secondary:hover{background:rgba(83,58,253,.08)}
+  /* Hero */
+  .hero{
+    display:flex;
+    align-items:center;
+    gap:2rem;
+    padding:4rem 0;
+    position:relative;
+  }
+  .hero-text{flex:1 1 500px;max-width:500px}
+  .hero-text h1{margin-bottom:1rem}
+  .hero-text p{margin-bottom:1.5rem;color:var(--color-muted)}
+  .hero-img{flex:1 1 400px;text-align:center}
+  .hero-img img{
+    width:100%;
+    max-width:480px;
+    border-radius:var(--radius);
+    box-shadow:0 4px 12px var(--shadow-layer1),0 2px 6px var(--shadow-layer2);
+  }
+  /* Stats bar */
+  .stats{
+    display:flex;
+    gap:2rem;
+    margin:3rem 0;
+    text-align:center;
+  }
+  .stat{
+    flex:1;
+    padding:1.5rem;
+    background:#fafafa;
+    border-radius:var(--radius);
+    box-shadow:0 2px 6px var(--shadow-layer1),0 1px 3px var(--shadow-layer2);
+  }
+  .stat-number{font-size:2rem;font-weight:500;color:var(--color-primary);display:block}
+  .stat-label{font-size:.95rem;color:var(--color-muted);margin-top:.25rem}
+  /* Services */
+  .services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:2rem;
+    margin:3rem 0;
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:var(--radius);
+    padding:1.5rem;
+    text-align:center;
+    box-shadow:0 2px 6px var(--shadow-layer1),0 1px 3px var(--shadow-layer2);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .service-card:hover{transform:translateY(-4px);box-shadow:0 6px 14px var(--shadow-layer1),0 3px 7px var(--shadow-layer2)}
+  .service-icon{font-size:2rem;margin-bottom:.75rem;color:var(--color-primary)}
+  .service-card h3{margin-bottom:.75rem}
+  .service-card p{color:var(--color-muted);font-size:.95rem}
+  /* Testimonials */
+  .testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2rem;
+    margin:3rem 0;
+  }
+  .testimonial{
+    background:#fafafa;
+    border-left:4px solid var(--color-primary);
+    padding:1.5rem;
+    border-radius:0 var(--radius) var(--radius) 0;
+    box-shadow:0 2px 6px var(--shadow-layer1),0 1px 3px var(--shadow-layer2);
+  }
+  .testimonial p{font-style:italic;color:var(--color-text);margin-bottom:1rem}
+  .testimonial .author{display:flex;align-items:center;gap:.75rem}
+  .testimonial .author img{
+    width:40px;height:40px;border-radius:50%;object-fit:cover;
+  }
+  .testimonial .author-info{line-height:1.2}
+  .testimonial .author-name{font-weight:500;color:var(--color-heading)}
+  .testimonial .author-role{font-size:.85rem;color:var(--color-muted)}
+  .stars{color:#ffb400;margin-bottom:.5rem}
+  .stars::before{content:"\2605\2605\2605\2605\2605";letter-spacing:2px}
+  /* CTA band */
+  .cta-band{
+    background:var-color-primary?var(--color-primary):#533afd;
+    color:#fff;
+    text-align:center;
+    padding:3rem 1rem;
+    border-radius:var(--radius);
+    margin:3rem 0;
+  }
+  .cta-band h2{color:#fff;margin-bottom:1.5rem}
+  .cta-band .btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .cta-band .btns a{flex:1 1 180px;max-width:220px}
+  /* Footer */
+  footer{
+    background:#f8f9fa;
+    padding:2rem 0;
+    font-size:.9rem;
+    color:var(--color-muted);
+  }
+  .footer-content{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    justify-content:center;
+    align-items:flex-start;
+  }
+  .footer-logo{font-weight:500;font-size:1.25rem;color:var(--color-heading)}
+  .footer-info{line-height:1.5}
+  .footer-info div{margin-bottom:.4rem}
+  footer small{display:block;margin-top:1.5rem;font-size:.8rem;color:#999}
+  /* Responsive */
+  @media(max-width:768px){
+    .hero{flex-direction:column;text-align:center}
+    .nav-links{display:none}
+    .stats{flex-wrap:wrap}
+  }
+</style>
+</head>
+<body>
+  <div class="demo-ribbon">✨ DEMO — Option B — Premium & Elevated · Built for PhysioWorks</div>
+
+  <nav class="navbar">
+    <div class="logo">PhysioWorks</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="cta-btn" onclick="window.location.href='#book'">Book Your Nearest Clinic</button>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>Physiotherapy Brisbane | Massage &amp; Exercise Physiology</h1>
+      <p>PhysioWorks provides physiotherapy Brisbane patients trust, plus remedial massage and exercise physiology across multiple locations.</p>
+      <div>
+        <button class="cta-btn">Book Your Nearest Clinic</button>
+        <button class="cta-btn secondary">Learn More</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://picsum.photos/seed/PhysioWorks/800/500" alt="Physiotherapy clinic interior">
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <span class="stat-number">10+</span>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <span class="stat-number">6</span>
+      <div class="stat-label">Locations</div>
+    </div>
+    <div class="stat">
+      <span class="stat-number">5,000+</span>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="service-card">
+      <div class="service-icon">💆‍♂️</div>
+      <h3>Physiotherapy</h3>
+      <p>Evidence‑based treatment to relieve pain, restore movement and prevent injury.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💆‍♀️</div>
+      <h3>Remedial Massage</h3>
+      <p>Targeted soft‑tissue therapy to reduce tension and improve circulation.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏃‍♂️</div>
+      <h3>Exercise Physiology</h3>
+      <p>Personalised exercise programs for rehabilitation, performance and chronic disease.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩺</div>
+      <h3>Allied Health Support</h3>
+      <p>Collaborative care including podiatry, dietetics and more for holistic recovery.</p>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="testimonial">
+      <div class="stars"></div>
+      <p>“After months of chronic back pain, the team at PhysioWorks got me back to running pain‑free. Their approach is thoughtful and truly effective.”</p>
+      <div class="author">
+        <img src="https://picsum.photos/seed/author1/100/100" alt="Author">
+        <div class="author-info">
+          <div class="author-name">James L.</div>
+          <div class="author-role">Accountant</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars"></div>
+      <p>“The remedial massage here is exceptional—my neck tension disappeared after just one session. Highly recommend for anyone needing expert care.”</p>
+      <div class="author">
+        <img src="https://picsum.photos/seed/author2/100/100" alt="Author">
+        <div class="author-info">
+          <div class="author-name">Sienna M.</div>
+          <div class="author-role">Graphic Designer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="book">
+    <h2>Ready to start your recovery?</h2>
+    <div class="btns">
+      <a href="#" class="cta-btn">Book Appointment</a>
+      <a href="#" class="cta-btn secondary">Call Us</a>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">PhysioWorks</div>
+          <div class="footer-info">
+            <div>Multiple locations across Ashgrove, Clayfield, Loganholme, Rochedale, Salisbury and Sandgate</div>
+            <div>Phone: </div>
+            <div>Email: </div>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <p>&copy; 2025 PhysioWorks. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
